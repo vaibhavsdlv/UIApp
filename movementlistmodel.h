@@ -18,7 +18,7 @@ typedef struct transaction
 
     bool operator<(const transaction& other) const
     {
-      if(QDateTime::fromString("ddMMyyyyhhmmss",this->dateTime).secsTo(QDateTime::fromString("ddMMyyyyhhmmss",other.dateTime)) > 0)
+      if(dateTime.toLongLong() - other.dateTime.toLongLong() > 0)
       {
           return true;
       }

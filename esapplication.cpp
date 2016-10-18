@@ -42,7 +42,7 @@ void ESApplication::refillMovementModel()
 
     // Query: select * from Transactions
     QSqlQuery query(db);
-    if(!query.exec("select * from Transactions order by ID asc"))
+    if(!query.exec("select * from Transactions order by Date desc"))
     {
         qDebug()<<"SQL Select * Query failed!";
     }
@@ -63,7 +63,7 @@ void ESApplication::refillMovementModel()
             transactionList.append(tempTransaction);
         }
 
-        m_fullMovementModel.insertParameters(transactionList, true);
+        m_fullMovementModel.insertParameters(transactionList, false);
     }
 }
 
