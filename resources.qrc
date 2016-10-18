@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file>Resources/banner.png</file>
+        <file>Resources/money.png</file>
+        <file>Resources/About.qml</file>
+        <file>Resources/CalendarPopup.qml</file>
+        <file>Resources/Charts.qml</file>
+        <file>Resources/Home.qml</file>
+        <file>Resources/Movement.qml</file>
+        <file>Resources/Transaction.qml</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>Resources/jbQuick.Charts/QChart.js</file>
+        <file>Resources/jbQuick.Charts/QChart.qml</file>
+        <file>Resources/jbQuick.Charts/QChartGallery.js</file>
+        <file>Resources/jbQuick.Charts/qmldir</file>
+    </qresource>
+</RCC>
