@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
 
 Item {
     height:720
@@ -8,15 +7,22 @@ Item {
     Column{
         width: parent.width
 
-        Button {
+        Rectangle {
             id: btnBack
-            text: qsTr("Back")
             width: parent.width
+            height:50
+            color:"grey"
+            MouseArea{
+                anchors.fill: parent
+                Text{
+                    text: qsTr("Back")
+                }
 
-            onClicked:{
-                homeControls.visible = true
-                about.visible = false
-                home.navigation = "home"
+                onClicked:{
+                    homeControls.visible = true
+                    about.visible = false
+                    home.navigation = "home"
+                }
             }
         }
 
@@ -29,7 +35,7 @@ Item {
         Rectangle{
             width: parent.width
             height: 500
-            TextArea{
+            TextEdit{
                 width: parent.width
                 height: parent.height
                 text: qsTr("\n\nAbout This"+

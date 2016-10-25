@@ -15,4 +15,12 @@
         <file>Resources/jbQuick.Charts/QChartGallery.js</file>
         <file>Resources/jbQuick.Charts/qmldir</file>
     </qresource>
+    <qresource prefix="/camolin3DatePicker">
+        <file>Resources/camolin3-datepicker/DateUtils.js</file>
+        <file>Resources/camolin3-datepicker/Calendar.qml</file>
+        <file>Resources/camolin3-datepicker/CalendarHeaderModel.qml</file>
+        <file>Resources/camolin3-datepicker/CalendarModel.qml</file>
+        <file>Resources/camolin3-datepicker/CalendarStyle.qml</file>
+        <file>Resources/camolin3-datepicker/Datepicker.qml</file>
+    </qresource>
 </RCC>

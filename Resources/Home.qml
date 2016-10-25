@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
+
 import "qrc:/qml/Resources"
 
 Rectangle {
@@ -39,32 +39,56 @@ Rectangle {
             width: parent.width
             height: 50
 
-            Button {
+            Rectangle {
                 id: button3
-                text: qsTr("+")
                 width: parent.width/3
-                onClicked:{
-                    callTransaction("+")
+                height:parent.height
+                color: "grey"
+                MouseArea{
+                    anchors.fill: parent
+                    Text{
+                        text: qsTr("+")
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                    onClicked:{
+                        callTransaction("+")
+                    }
                 }
             }
 
-            Button {
+            Rectangle {
                 id: button2
-                text: qsTr("-")
                 width: parent.width/3
-                onClicked:{
-                    callTransaction("-")
+                height:parent.height
+                color: "grey"
+                MouseArea{
+                    anchors.fill: parent
+                    Text{
+                        text: qsTr("-")
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                    onClicked:{
+                        callTransaction("-")
+                    }
                 }
             }
 
-            Button {
+            Rectangle {
                 id: button1
-                text: qsTr("List All")
                 width: parent.width/3
-                onClicked: {
-                    homeControls.visible = false
-                    movement.visible = true
-                    home.navigation = "movement"
+                height:parent.height
+                color: "grey"
+                MouseArea{
+                    anchors.fill: parent
+                    Text{
+                        text: qsTr("List All")
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                    onClicked: {
+                        homeControls.visible = false
+                        movement.visible = true
+                        home.navigation = "movement"
+                    }
                 }
             }
         }
@@ -73,34 +97,58 @@ Rectangle {
             width: parent.width
             height: 50
 
-            Button {
+            Rectangle {
                 id: btnClearDB
-                text: qsTr("Clear DB")
                 width: parent.width/3
-                onClicked:{
-                    _ESApplication.clearDB()
+                height:parent.height
+                color:"grey"
+                MouseArea{
+                    anchors.fill: parent
+                    Text{
+                        text: qsTr("Clear DB")
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                    onClicked:{
+                        _ESApplication.clearDB()
+                    }
                 }
             }
 
-            Button {
+            Rectangle {
                 id: button4
-                text: qsTr("Charts")
                 width:parent.width/3
-                onClicked:{
-                    homeControls.visible = false
-                    charts.visible = true
-                    home.navigation = "charts"
+                height:parent.height
+                color:"grey"
+                MouseArea{
+                    anchors.fill: parent
+                    Text{
+                        text: qsTr("Charts")
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                    onClicked:{
+                        homeControls.visible = false
+                        charts.visible = true
+                        home.navigation = "charts"
+                    }
                 }
             }
 
-            Button {
+            Rectangle {
                 id: button5
-                text: qsTr("About")
                 width:parent.width/3
-                onClicked:{
-                    homeControls.visible = false
-                    about.visible = true
-                    home.navigation = "about"
+                height:parent.height
+                color:"grey"
+                MouseArea{
+                    anchors.fill: parent
+                    Text{
+                        text: qsTr("About")
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                    onClicked:{
+                        homeControls.visible = false
+                        about.visible = true
+                        home.navigation = "about"
+                    }
                 }
             }
 
@@ -112,13 +160,14 @@ Rectangle {
             source: "qrc:/qml/Resources/money.png"
         }
 
-        Label {
+        Rectangle {
             height: 50
             width: parent.width
             id: lblLast10Trx
-            text: qsTr("Last 10 Transactions")
-            horizontalAlignment: Text.AlignHCenter
-
+            Text{
+                text: qsTr("Last 10 Transactions")
+                horizontalAlignment: Text.AlignHCenter
+            }
         }
 
         Row {

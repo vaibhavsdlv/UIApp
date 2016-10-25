@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
+import "qrc:/camolin3DatePicker/Resources/camolin3-datepicker" 1.0
 
 Item {
     id: dialogComponent
@@ -18,15 +18,29 @@ Item {
             anchors.fill: parent
         }
     }
-    Calendar {
-        id: calendarPopUp
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
 
-        onClicked: {
-            _ESApplication.trxDateTime = date
-            btnDtTm.text = _ESApplication.trxDateTime
-            dialogComponent.destroy()
+    Datepicker {
+            id: myDate
+            activeWindow: main
+            width: 200
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            onClicked: {
+                _ESApplication.trxDateTime = date
+                btnDtTm.text = _ESApplication.trxDateTime
+                dialogComponent.destroy()
+            }
         }
-    }
+
+//    Calendar {
+//        id: calendarPopUp
+//        anchors.horizontalCenter: parent.horizontalCenter
+//        anchors.verticalCenter: parent.verticalCenter
+
+//        onClicked: {
+//            _ESApplication.trxDateTime = date
+//            btnDtTm.text = _ESApplication.trxDateTime
+//            dialogComponent.destroy()
+//        }
+//    }
 }

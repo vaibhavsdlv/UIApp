@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
 
 Rectangle{
     id: transaction
@@ -33,15 +32,23 @@ Rectangle{
         width: parent.width
         height: 400
 
-        Button {
+        Rectangle {
             id: button3
-            text: qsTr("Back")
             width: parent.width
+            height:50
+            color:"grey"
+            MouseArea{
+                anchors.fill: parent
+                Text{
+                    text: qsTr("Back")
+                    horizontalAlignment: Text.AlignHCenter
+                }
 
-            onClicked:{
-                homeControls.visible = true
-                transaction.visible = false
-                home.navigation = "home"
+                onClicked:{
+                    homeControls.visible = true
+                    transaction.visible = false
+                    home.navigation = "home"
+                }
             }
         }
 
@@ -50,16 +57,24 @@ Rectangle{
             width: parent.width
             height: 50
 
-            Label {
+            Rectangle {
                 id: lblPlus
-                text: qsTr("+")
                 width: parent.width/2
+                height:parent.height
+                Text{
+                    text: qsTr("+")
+                    horizontalAlignment: Text.AlignHCenter
+                }
             }
 
-            Label {
+            Rectangle {
                 id: lblMinus
-                text: qsTr("-")
                 width: parent.width/2
+                height:parent.height
+                Text{
+                    text: qsTr("-")
+                    horizontalAlignment: Text.AlignHCenter
+                }
             }
         }
         Row {
@@ -67,15 +82,17 @@ Rectangle{
             width: parent.width
             height: 50
 
-            Label {
+            Rectangle {
                 id: lblAmount
-                text: qsTr("Amount:")
                 width: parent.width/2
+                height: parent.height
+                Text{
+                    text: qsTr("Amount:")
+                }
             }
 
-            TextField {
+            TextEdit{
                 id: txtAmount
-                placeholderText: qsTr("Amount")
                 width: parent.width/2
                 text:_ESApplication.amount
 
@@ -91,22 +108,25 @@ Rectangle{
             height: 50
 
 
-            Label {
+            Rectangle {
                 id: lblAccount
-                text: qsTr("Account:")
                 width: parent.width/2
-            }
-
-            ComboBox {
-                id: cbAccount
-                editable: false
-                model: [ "Card1", "Cash", "Savings" ]
-                width: parent.width/2
-
-                onCurrentTextChanged:  {
-                    _ESApplication.account = cbAccount.currentText
+                height: parent.height
+                Text{
+                    text: qsTr("Account:")
                 }
             }
+
+            //            ComboBox {
+            //                id: cbAccount
+            //                editable: false
+            //                model: [ "Card1", "Cash", "Savings" ]
+            //                width: parent.width/2
+
+            //                onCurrentTextChanged:  {
+            //                    _ESApplication.account = cbAccount.currentText
+            //                }
+            //            }
         }
 
         Row {
@@ -114,22 +134,25 @@ Rectangle{
             width: parent.width
             height: 50
 
-            Label {
+            Rectangle {
                 id: lblExpCategory
-                text: qsTr("Category:")
                 width:parent.width/2
-            }
-
-            ComboBox {
-                id: cbExpCategory
-                editable: false
-                width: parent.width/2
-                model: [ "Clothing", "Drinks", "Education", "Food", "Fuel", "Fun", "Health", "Highway", "Hotel", "Merchandise", "Other", "Personal", "Pets", "Restaurant", "Tips", "Transport" ]
-
-                onCurrentTextChanged: {
-                    _ESApplication.category = cbExpCategory.currentText
+                height: parent.height
+                Text{
+                    text: qsTr("Category:")
                 }
             }
+
+            //            ComboBox {
+            //                id: cbExpCategory
+            //                editable: false
+            //                width: parent.width/2
+            //                model: [ "Clothing", "Drinks", "Education", "Food", "Fuel", "Fun", "Health", "Highway", "Hotel", "Merchandise", "Other", "Personal", "Pets", "Restaurant", "Tips", "Transport" ]
+
+            //                onCurrentTextChanged: {
+            //                    _ESApplication.category = cbExpCategory.currentText
+            //                }
+            //            }
         }
 
         Row {
@@ -137,22 +160,25 @@ Rectangle{
             width: parent.width
             height: 50
 
-            Label {
+            Rectangle {
                 id: lblIncCategory
-                text: qsTr("Category:")
                 width:parent.width/2
-            }
-
-            ComboBox {
-                id: cbIncCategory
-                editable: false
-                width: parent.width/2
-                model: [ "Loan", "Salary", "Sales" ]
-
-                onCurrentTextChanged: {
-                    _ESApplication.category = cbIncCategory.currentText
+                height: parent.height
+                Text{
+                    text: qsTr("Category:")
                 }
             }
+
+            //            ComboBox {
+            //                id: cbIncCategory
+            //                editable: false
+            //                width: parent.width/2
+            //                model: [ "Loan", "Salary", "Sales" ]
+
+            //                onCurrentTextChanged: {
+            //                    _ESApplication.category = cbIncCategory.currentText
+            //                }
+            //            }
         }
 
         Row {
@@ -160,15 +186,17 @@ Rectangle{
             width: parent.width
             height: 50
 
-            Label {
+            Rectangle {
                 id: lblDesc
-                text: qsTr("Description")
                 width: parent.width/2
+                height: parent.height
+                Text{
+                    text: qsTr("Description")
+                }
             }
 
-            TextField {
+            TextEdit {
                 id: textDesc
-                placeholderText: qsTr("Description")
                 width: parent.width/2
                 text: _ESApplication.desc
 
@@ -183,33 +211,28 @@ Rectangle{
             width: parent.width
             height: 50
 
-            Label {
+            Rectangle {
                 id: label1
                 width: parent.width/2
-                text: qsTr("Date:")
-            }
-
-            Button {
-                id: btnDtTm
-                text: qsTr("Select...")
-                width: parent.width/2
-                onClicked:{
-                    Qt.createComponent("qrc:/qml/Resources/CalendarPopup.qml").createObject(transaction, {});
+                height: parent.height
+                Text{
+                    text: qsTr("Date:")
                 }
             }
-        }
 
-        Row {
-            id: rowCal
-            width: parent.width
+            Rectangle {
+                id: btnDtTm
+                width: parent.width/2
+                height: parent.height
+                MouseArea{
+                    anchors.fill: parent
+                    Text{
+                        text: qsTr("Select...")
+                    }
 
-            Calendar {
-                id: calendar1
-                visible: false
-                onClicked:{
-                    _ESApplication.trxDateTime = date
-                    btnDtTm.text = _ESApplication.trxDateTime
-                    calendar1.visible = false
+                    onClicked:{
+                        Qt.createComponent("qrc:/qml/Resources/CalendarPopup.qml").createObject(transaction, {});
+                    }
                 }
             }
         }
@@ -219,27 +242,42 @@ Rectangle{
             width: parent.width
             height: 50
 
-            Button {
+            Rectangle {
                 id: btnOK
-                text: qsTr("SAVE")
                 width: parent.width/2
-                onClicked:{
-                    _ESApplication.addTransaction()
-                    transaction.requestRefresh()
-                    transaction.visible = false
-                    homeControls.visible = true
-                    home.navigation = "home"
+                height:parent.height
+                color:"grey"
+                MouseArea{
+                    anchors.fill: parent
+                    Text{
+                        text: qsTr("SAVE")
+                    }
+
+                    onClicked:{
+                        _ESApplication.addTransaction()
+                        transaction.requestRefresh()
+                        transaction.visible = false
+                        homeControls.visible = true
+                        home.navigation = "home"
+                    }
                 }
             }
 
-            Button {
+            Rectangle {
                 id: btnCancel
-                text: qsTr("CANCEL")
                 width: parent.width/2
-                onClicked:{
-                    transaction.visible = false
-                    homeControls.visible = true
-                    home.navigation = "home"
+                height: parent.height
+                color:"grey"
+                MouseArea{
+                    anchors.fill: parent
+                    Text{
+                        text: qsTr("CANCEL")
+                    }
+                    onClicked:{
+                        transaction.visible = false
+                        homeControls.visible = true
+                        home.navigation = "home"
+                    }
                 }
             }
         }

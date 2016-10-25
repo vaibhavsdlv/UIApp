@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
 
 Rectangle {
     id: movement
@@ -8,15 +7,23 @@ Rectangle {
     Column{
         width: parent.width
 
-        Button {
+        Rectangle {
             id: button3
-            text: qsTr("Back")
             width: parent.width
+            height:50
+            color:"grey"
+            MouseArea{
+                anchors.fill: parent
+                Text{
+                    text: qsTr("Back")
+                    horizontalAlignment: Text.AlignHCenter
+                }
 
-            onClicked:{
-                homeControls.visible = true
-                movement.visible = false
-                home.navigation = "home"
+                onClicked:{
+                    homeControls.visible = true
+                    movement.visible = false
+                    home.navigation = "home"
+                }
             }
         }
 
