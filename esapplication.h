@@ -6,6 +6,7 @@
 #include <QSqlDatabase>
 #include "movementlistmodel.h"
 #include <QTimer>
+#include "sailfishapp.h"
 
 class ESApplication:QObject
 {
@@ -47,6 +48,8 @@ public:
     QVariantList dataList() const;
     void setLabelList(const QVariantList &a);
     QVariantList labelList() const;
+
+    void createLocalDBIfNotAvailable();
 
     Q_INVOKABLE void setTrxType(const QString &a);
 

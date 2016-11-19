@@ -7,8 +7,12 @@ ESApplication::ESApplication(QObject *parent=0)
     this->parent = parent;
     this->m_amount = 0;
 
+
+
+    createLocalDBIfNotAvailable();
+
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("expenses.db");
+    db.setDatabaseName(QStandardPaths::writableLocation(QStandardPaths::DataLocation)+"/expenses.db");
 
     if(!db.open())
     {
@@ -216,6 +220,23 @@ void ESApplication::setLabelList(const QVariantList &a)
 QVariantList ESApplication::labelList() const
 {
     return m_labelList;
+}
+
+void ESApplication::createLocalDBIfNotAvailable()
+{
+    QString localDataPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+    QDir localDataDir(localDataPath);
+    if(!localDataDir.exists(localDataPath))
+    {
+        localDataDir.mkdir(localDataPath);
+        qDebug()<<"Local Data Dir created.";
+    }
+
+    if(!QFile::exists(localDataPath+"/expenses.db"))
+    {
+        QFile::copy("/usr/share/UIApp/expenses.db", localDataPath+"/expenses.db");
+        qDebug()<<"Local DB File created.";
+    }
 }
 
 void ESApplication::setTrxType(const QString &a)
