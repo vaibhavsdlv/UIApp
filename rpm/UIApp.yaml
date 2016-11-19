@@ -1,0 +1,27 @@
+Name: UIApp
+Summary: QT5/QML Sailfish Demo Application
+Version: 0.1
+Release: 1
+Group: Applications/Multimedia
+License: BSD
+Sources:
+- '%{name}-%{version}.tar.bz2'
+Description: |
+  QML QT5 Sailfish OS Application
+Configure: none
+Builder: qtc5
+PkgConfigBR:
+- sailfishapp
+- Qt5Quick
+- Qt5Qml
+- Qt5Core
+- qdeclarative5-boostable
+Requires:
+- mapplauncherd-booster-silica-qt5
+- nemo-qml-plugin-thumbnailer-qt5
+- sailfishsilica-qt5
+- qt5-qtdocgallery
+Files:
+- '%{_datadir}/applications/%{name}.desktop'
+- '%{_datadir}/%{name}/expenses.db'
+- '%{_bindir}'
